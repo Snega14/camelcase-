@@ -1,0 +1,35 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+        
+public class Main {
+    public static void main(String[] args) {
+        
+        Scanner sc = new Scanner(System.in);
+        System.out.print("");
+        String eventName = sc.nextLine().trim();
+        String camelCaseName = convertToCamelCase(eventName);
+        System.out.println(camelCaseName);
+    }
+    
+    public static String convertToCamelCase(String eventName) {
+        String[] words = eventName.split("\\s+");
+        
+        StringBuilder camelCase = new StringBuilder();
+        
+        for (int i = 0; i < words.length; i++) {
+            if (i == 0) {
+                camelCase.append(words[i].substring(0, 1).toUpperCase());
+                camelCase.append(words[i].substring(1).toLowerCase());
+            } else {
+                camelCase.append(words[i].substring(0, 1).toUpperCase());
+                camelCase.append(words[i].substring(1).toLowerCase());
+            }
+        }
+        
+        return camelCase.toString();
+    }
+}
